@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_header"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#010226"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/playback_controls_fragment"
+            android:name="shop.tv.rsys.com.tvapplication.LogoHeaderFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+
+            android:id="@+id/voice_search_imageview"
+            android:layout_width="246dp"
+            android:layout_height="47dp"
+            android:layout_marginRight="-70dp"
+            android:layout_marginTop="5dp"
+            android:nextFocusDown="@+id/home_textview"
+            android:nextFocusLeft="@+id/home_textview"
+            android:src="@drawable/text_with_voice_search"
+            android:text="voice search" />
+
+    </LinearLayout>
+
+    <!-- Fragment attach Header Menu Fragment -->
+    <FrameLayout
+        android:id="@+id/header_menu_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nextFocusDown="@+id/grid_container"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="false"
+        android:orientation="horizontal">
+
+
+        <!-- Fragment attach Hub Left  Menu Icon -->
+        <FrameLayout
+            android:id="@+id/hub_left_menu_icon_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="false"
+                android:alpha="0.3"
+                android:src="@drawable/gradient_main" />
+
+
+            <!--<fragment
+                android:id="@+id/playback_controls_fragmenta"
+                android:name="shop.tv.rsys.com.tvapplication.MainFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />-->
+
+
+            <FrameLayout
+                android:id="@+id/grid_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/firstRelativeGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/gridView1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:clipToPadding="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingLeft="0dp"
+            android:paddingRight="754dp" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/gridView2"
+            android:layout_width="155dp"
+            android:layout_height="200dp"
+            android:layout_alignBaseline="@+id/gridView1"
+            android:layout_marginLeft="0dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:nextFocusRight="@null"
+            android:nextFocusUp="@+id/home_textview"
+            android:paddingLeft="0dp"
+            android:paddingRight="-2dp"
+            android:clipToPadding="false"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/secondRelativeGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/gridView3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:clipToPadding="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:paddingLeft="0dp"
+            android:paddingRight="754dp" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/gridView4"
+            android:layout_width="155dp"
+            android:layout_height="200dp"
+            android:layout_alignBaseline="@+id/gridView3"
+            android:layout_marginLeft="0dp"
+            android:clipToPadding="false"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingLeft="0dp"
+            android:paddingRight="-2dp"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

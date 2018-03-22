@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/header_views_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="60dp"
+        android:focusableInTouchMode="false"
+        >
+
+        <shop.tv.rsys.com.tvapplication.ui.fontviews.TextViewLight
+            android:id="@+id/home_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@drawable/button_focus"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:focusable="true"
+            android:nextFocusRight="@+id/mylib_textview"
+            android:nextFocusLeft="@+id/search_button"
+            android:nextFocusUp="@+id/voice_search_imageview"
+            />
+
+        <shop.tv.rsys.com.tvapplication.ui.fontviews.TextViewLight
+            android:id="@+id/mylib_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Library"
+            android:textColor="@drawable/button_focus"
+            android:textAllCaps="false"
+            android:layout_marginLeft="20dp"
+            android:focusable="true"
+            android:textSize="20dp"
+            android:nextFocusRight="@+id/shop_textview"
+            android:nextFocusUp="@+id/voice_search_imageview"
+            android:nextFocusLeft="@+id/home_textview"
+            />
+
+
+        <shop.tv.rsys.com.tvapplication.ui.fontviews.TextViewLight
+            android:id="@+id/shop_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shop"
+            android:textColor="@drawable/button_focus"
+            android:textAllCaps="false"
+            android:focusable="true"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:nextFocusRight="@+id/shop_textview"
+            android:nextFocusUp="@+id/voice_search_imageview"
+            android:nextFocusLeft="@+id/mylib_textview"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lb_browse_rows_margin_top">40dp</dimen>
+    <dimen name="lb_browse_padding_start">20dp</dimen>
+    <dimen name="lb_browse_rows_margin_start">238dp</dimen>
+    <dimen name="lb_guidedactions_item_end_padding">1dp</dimen>
+    <dimen name="lb_browse_header_description_text_size">0dp</dimen>
+    <dimen name="lb_browse_headers_vertical_spacing">0dp</dimen>
+    <item name="lb_browse_rows_scale" type="fraction">80%</item>
+</resources>

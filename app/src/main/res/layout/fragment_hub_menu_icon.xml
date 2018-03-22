@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="90dp"
+
+        >
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/serach_selector"
+            android:nextFocusUp="@+id/home_textview"
+            android:nextFocusDown="@+id/hombvfe_texdstview"
+            android:nextFocusLeft="@+id/search_button"
+            />
+
+        <Button
+            android:id="@+id/hombvfe_texdstview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/setting_selector"
+            android:nextFocusDown="@+id/hombvfe_texdstview"
+            android:nextFocusUp="@+id/search_button"
+            android:nextFocusLeft="@+id/hombvfe_texdstview"
+            />
+
+        <!-- <Button
+             android:id="@+id/error_texdstview"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:background="@drawable/ico_error_selector"
+             />-->
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <shop.tv.rsys.com.tvapplication.ui.fontviews.TextViewLight
+        android:id="@+id/header_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"/>
+
+    <RadioButton
+        android:id="@+id/header_radio_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:checked="true"
+        android:buttonTint="@color/white"
+        android:layout_marginLeft="80dp"
+        android:scaleX="0.70"
+        android:scaleY="0.70"
+         />
+</LinearLayout>
