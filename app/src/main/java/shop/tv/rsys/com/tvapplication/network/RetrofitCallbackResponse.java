@@ -28,15 +28,33 @@ public class RetrofitCallbackResponse {
         call.enqueue(new Callback<BtaResponseModel>() {
             @Override
             public void onResponse(Call<BtaResponseModel> call, Response<BtaResponseModel> response) {
+
                 progressBar.setVisibility(View.GONE);
-                try {
-                    List<BtaResponseModel.Movie> btaMovies = response.body().getMovie();
-                    responseCallback.getResponse(btaMovies);
+                if (response.isSuccessful()) {
+
+                    try {
+                        List<BtaResponseModel.Movie> btaMovies = response.body().getMovie();
+                        responseCallback.getResponse(btaMovies);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        Toast.makeText(mContext , "Exception "+e.toString() , Toast.LENGTH_LONG).show();
+                    }
                 }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                    Toast.makeText(mContext , "Exception "+e.toString() , Toast.LENGTH_LONG).show();
+                else {
+                    // error case
+                    switch (response.code()) {
+                        case 404:
+                            Toast.makeText(mContext, "404 not found", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 500:
+                            Toast.makeText(mContext, "500 server broken", Toast.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            Toast.makeText(mContext, "unknown error", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
                 }
             }
 
@@ -44,7 +62,7 @@ public class RetrofitCallbackResponse {
             public void onFailure(Call<BtaResponseModel> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Log.d("RetrofitFail",t.toString());
-                Toast.makeText(mContext , "Failure "+t.toString() , Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
             }
         });
     }

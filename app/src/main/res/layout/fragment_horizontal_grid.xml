@@ -41,7 +41,7 @@
             android:nextFocusRight="@null"
             android:nextFocusUp="@+id/home_textview"
             android:paddingLeft="0dp"
-            android:paddingRight="-2dp"
+            android:paddingRight="-1.5dp"
             android:clipToPadding="false"/>
 
     </RelativeLayout>
@@ -79,8 +79,7 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:paddingLeft="0dp"
-            android:paddingRight="-2dp"
-
+            android:paddingRight="-1.5dp"
             />
 
     </RelativeLayout>
