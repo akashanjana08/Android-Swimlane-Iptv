@@ -44,22 +44,22 @@ public class MovieDetailsModel {
     @Root(name="Movie" ,strict=false)
     public static class Movie
     {
-        @Element(name = "ID")
+        @Element(name = "ID", required = false)
         private String movieId;
 
-        @Element(name = "Title")
+        @Element(name = "Title", required = false)
         private String title;
 
-        @Element(name = "SortName")
+        @Element(name = "SortName", required = false)
         private String sortName;
 
-        @Element(name="longDescription")
+        @Element(name="longDescription", required = false)
         private String longDescription;
 
-        @Element(name="JPEG")
+        @Element(name="JPEG", required = false)
         private String posterImage;
 
-        @Element(name = "ReleaseYear")
+        @Element(name = "ReleaseYear", required = false)
         private String releaseYear;
 
         @Element(name = "RentalItem", required = false)

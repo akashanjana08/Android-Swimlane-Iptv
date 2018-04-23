@@ -35,7 +35,5 @@
         <activity android:name=".BrowseErrorActivity" />
         <activity android:name=".test.HorizontalGridActivity" ></activity>
         <activity android:name=".player.MediaPlayerActivity" ></activity>
-
     </application>
-
 </manifest>

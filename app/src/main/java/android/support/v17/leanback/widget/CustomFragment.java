@@ -214,6 +214,7 @@ public class CustomFragment extends BrowseFragment {
                         }
                     }
                 }, getQueryMap(sortValue),getActivity(),progressBar);
+
             }
             else if(SHOP_PAGE == 1){
                 SearchRetrofitCallbackResponse.getNetworkResponse(new SearchResponsecallback() {
@@ -325,7 +326,6 @@ public class CustomFragment extends BrowseFragment {
         queryMap.put("subtypesVOD","movie");
         return queryMap;
     }
-
 
     private final int maxHookIntoFocusTries = 5;
     private int hookIntoFocusTries = 0;

@@ -43,6 +43,7 @@ public class GridHubFragment extends Fragment implements IKeyEventListener {
     private RecyclerView horizontalGridView1, horizontalGridView2, horizontalGridView3, horizontalGridView4;
     private RelativeLayout firstRelativeGrid, secondRelativeGrid;
     private View currentFocusView;
+    GridElementAdapter adapter1;
 
     @Nullable
     @Override
@@ -59,7 +60,7 @@ public class GridHubFragment extends Fragment implements IKeyEventListener {
         horizontalGridView2.setFocusable(false);
 
 
-        GridElementAdapter adapter1 = new GridElementAdapter(getActivity(), 0, 250, 314, R.layout.grid_element, true);
+        adapter1 = new GridElementAdapter(getActivity(), 0, 250, 314, R.layout.grid_element, true);
         GridElementAdapter adapter2 = new GridElementAdapter(getActivity(), 0, 300, 350, R.layout.focus_grid_element, false);
         GridElementAdapter adapter3 = new GridElementAdapter(getActivity(), 0, 250, 314, R.layout.grid_element, false);
 
@@ -102,6 +103,24 @@ public class GridHubFragment extends Fragment implements IKeyEventListener {
         return view;
     }
 
+    public void autoScroll() {
+        final int speedScroll = 0;
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            int count = 0;
+
+            @Override
+            public void run() {
+                if (count == adapter1.getItemCount())
+                    count = 0;
+                if (count < adapter1.getItemCount()) {
+                    horizontalGridView1.smoothScrollToPosition(++count);
+                    handler.postDelayed(this, speedScroll);
+                }
+            }
+        };
+        handler.postDelayed(runnable, speedScroll);
+    }
 
     int i = 0, j = 0;
 
@@ -168,23 +187,23 @@ public class GridHubFragment extends Fragment implements IKeyEventListener {
         gridscrolling(keyCode, mHeaderMenuFramelayout);
     }
 
-            @Override
-            public void onKeyUpEventKey(KeyEvent event, FrameLayout mFramelayout) {
+    @Override
+    public void onKeyUpEventKey(KeyEvent event, FrameLayout mFramelayout) {
+    }
+
+
+    private void gridscrolling(int keyCode, FrameLayout mHeaderMenuFramelayout) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode == KeyEvent.KEYCODE_DPAD_DOWN || keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            mHeaderMenuFramelayout.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
+        }
+
+        if ((horizontalGridView2.getVisibility() == View.VISIBLE) && (keyCode == KeyEvent.KEYCODE_DPAD_LEFT)) {
+            horizontalGridView1.smoothScrollBy(-horizontalGridView1.getChildAt(0).getWidth(), 0);
+            horizontalGridView2.smoothScrollBy(-horizontalGridView2.getChildAt(0).getWidth(), 0);
+            if (i != 0) {
+                i--;
+                secondRelativeGrid.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
             }
-
-
-        private void gridscrolling(int keyCode, FrameLayout mHeaderMenuFramelayout) {
-            if (keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode == KeyEvent.KEYCODE_DPAD_DOWN || keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-                mHeaderMenuFramelayout.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
-            }
-
-            if ((horizontalGridView2.getVisibility() == View.VISIBLE) && (keyCode == KeyEvent.KEYCODE_DPAD_LEFT)) {
-                horizontalGridView1.smoothScrollBy(-horizontalGridView1.getChildAt(0).getWidth(), 0);
-                horizontalGridView2.smoothScrollBy(-horizontalGridView2.getChildAt(0).getWidth(), 0);
-                if (i != 0) {
-                    i--;
-                    secondRelativeGrid.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
-                }
 
             horizontalGridView1.smoothScrollToPosition(i);
             horizontalGridView2.smoothScrollToPosition(i);

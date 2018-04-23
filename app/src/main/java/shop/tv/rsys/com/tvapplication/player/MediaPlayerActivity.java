@@ -8,6 +8,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import java.io.IOException;
+import java.util.Random;
 
 import shop.tv.rsys.com.tvapplication.R;
 
@@ -21,7 +22,11 @@ public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callb
     int flag = 0;
     //private static final String VIDEO_PATH = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
     //private static final String VIDEO_PATH = "rtsp://10.67.190.130:554/E-Ent-1A-1Subt-1txt_0.ts";
-    private static String VIDEO_PATH = "rtsp://10.67.181.197:1935/vod/trailer.mp4";
+    String videoPaths[] = {"rtsp://10.67.181.197:1935/vod/trailer.mp4","rtsp://10.67.181.197:1935/vod/sample.mp4"};
+
+    private static String VIDEO_PATH = "rtsp://10.67.181.197:1935/vod/sample.mp4";
+   // private static String VIDEO_PATH = "rtsp://10.2.216.228:554/2G/LIVE/STARPLUS_QCIF.sdp";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +37,14 @@ public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callb
         mSurfaceHolder.addCallback(MediaPlayerActivity.this);
     }
 
+
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setDisplay(mSurfaceHolder);
         try {
             mMediaPlayer.setDataSource(VIDEO_PATH);
-            mMediaPlayer.prepare();
+            mMediaPlayer.prepareAsync();
             mMediaPlayer.setOnPreparedListener(MediaPlayerActivity.this);
             mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         } catch (IOException e) {
@@ -58,6 +64,7 @@ public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callb
     public void onPrepared(MediaPlayer mp) {
         mMediaPlayer.start();
     }
+
 
     @Override
     protected void onPause() {

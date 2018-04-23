@@ -156,12 +156,8 @@ public class MainFragment extends BrowseFragment {
 
         setOnItemViewClickedListener(new ItemViewClickedListener());
         setOnItemViewSelectedListener(new ItemViewSelectedListener());
-
         setBrowseTransitionListener(new BrowseTransitionListener(){
-
-
         });
-
     }
 
     protected void updateBackground(String uri) {

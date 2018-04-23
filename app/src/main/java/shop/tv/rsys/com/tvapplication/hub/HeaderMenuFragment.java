@@ -25,9 +25,7 @@ public class HeaderMenuFragment extends Fragment implements View.OnFocusChangeLi
 
 
     TextView homeTextview;
-
     TextView myLibtextview;
-
     TextView shopTextView;
 
 

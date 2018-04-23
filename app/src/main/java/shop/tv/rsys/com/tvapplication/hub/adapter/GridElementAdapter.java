@@ -114,6 +114,7 @@ public class GridElementAdapter extends RecyclerView.Adapter<GridElementAdapter.
         holder.textViewMovieTitle.setText(movieTitleList.get(position));
         holder.textViewMovieDescription.setText(context.getString(movieDescriptionList.get(position)));
 
+
         if(requestFocus && position==0) {
             holder.cardView.requestFocus();
         }
@@ -124,9 +125,12 @@ public class GridElementAdapter extends RecyclerView.Adapter<GridElementAdapter.
                 Toast.makeText(context, "Click On Pos : " + position, Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
+        holder.cardView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                System.out.println("Pos On : " + position);
+            }
+        });
     }
 
 
